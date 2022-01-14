@@ -16,8 +16,15 @@ Puedes descargarla en:
 
 https://docs.microsoft.com/es-es/sql/samples/adventureworks-install-configure?view=sql-server-ver15&tabs=ssms
 
+He creado un video demo en Youtube: 
+
+https://youtu.be/rmw8BaNovJE
 
 14/01/2022:
 Aprovechando el Nuevo PowerClient introducido en la versión 2019 he creado una demo compilada, quitando la conexión a la base de datos datos AdventureWorks.
 
 www.rsrsystem.com/rsrsystem/qr_app/
+
+Para estar al tanto de lo que prublico puedes seguri mi blog:
+
+https://rsrsystem.blogspot.com/
