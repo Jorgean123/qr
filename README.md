@@ -3,6 +3,11 @@ PowerBuilder QrCode
 
 Ejemplo PowerBUilder para Generar y Leer Códigos QR.
 
+Si necesitas modificar el proyecto de Visual Studio 2022 lo tienes disponible aqui:
+
+https://github.com/rasanfe/ZxingBarcode
+
+
 Para que este ejemplo funcione hay que tener instalado Net Core 3.1.
 
 Puedes descargarlo en:
@@ -26,6 +31,6 @@ Puedes descargar y probar la app en:
 
 https://www.rsrsystem.com/rsrsystem/qr_app/
 
-Para estar al tanto de lo que publico puedes seguri mi blog:
+Para estar al tanto de lo que publico puedes seguir mi blog:
 
 https://rsrsystem.blogspot.com/
