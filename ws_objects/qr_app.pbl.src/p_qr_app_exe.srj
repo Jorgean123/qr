@@ -6,10 +6,10 @@ COM:RSRSYSTEM
 DES:Alternativa Qr Zxing.dll NetCore
 CPY:Ramón San Félix Ramón
 PRD:Qr_app
-PVS:2022.0.1818.3
-PVN:2022,0,1818,3
-FVS:2022.0.1818.3
-FVN:2022,0,1818,3
+PVS:2022.0.1878.3
+PVN:2022,0,1878,3
+FVS:2022.0.1878.3
+FVN:2022,0,1878,3
 MAN:0,asInvoker,0
 PBD:qr_app.pbl,,1
 OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_NetCore\qr_app.pbl,nvo_zxingnetcoreclass,u
