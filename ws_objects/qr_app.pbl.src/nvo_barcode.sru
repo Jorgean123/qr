@@ -139,15 +139,16 @@ lb_PureBarcode=true
 li_format = QR_CODE
 
 ls_result = io_zxing.of_barcodegenerate(as_data, ls_qr, li_format, li_width, li_height, lb_PureBarcode, li_margin)
-	
-IF	NOT FileExists(ls_qr) THEN
-	ls_qr =  ls_qr_blanco
-END IF
 
+IF isnull(ls_result) or ls_result="" THEN ls_result=io_zxing.is_ErrorText
+	
 IF ls_result <> ls_qr THEN
 		messagebox("Error", ls_result, Stopsign!)
 END IF	
 
+IF	NOT FileExists(ls_qr) THEN
+	ls_qr =  ls_qr_blanco
+END IF
 
 RETURN ls_qr
 end function
@@ -164,6 +165,10 @@ IF isnull(as_qrfilepath) OR as_qrfilepath = "" or not FileExists( as_qrfilepath)
 END IF
 
 ls_lectura = io_Zxing.of_readbarcode(as_qrFilePath)
+
+IF isnull(ls_lectura) or ls_lectura="" THEN
+	messagebox("Error", io_zxing.is_ErrorText, Stopsign!)
+END IF	
 
 RETURN ls_lectura
 
