@@ -64,9 +64,7 @@ end variables
 
 forward prototypes
 public subroutine wf_version (statictext ast_version, statictext ast_patform)
-public subroutine wf_conectar ()
 public function long wf_retrieve (datawindow adw)
-public function long wf_inserrows (datawindow adw)
 end prototypes
 
 public subroutine wf_version (statictext ast_version, statictext ast_patform);String ls_version, ls_platform
@@ -89,40 +87,7 @@ ast_version.text=ls_version
 ast_patform.text=ls_platform
 end subroutine
 
-public subroutine wf_conectar ();
-IF isPowerClientApp() THEN
-	RETURN
-ELSE	
-	// Profile AdventureWorks2012
-	SQLCA.DBMS = profileString("qr_app.ini", "Database",  "DBMS", "ODBC")
-	SQLCA.LogPass =profileString("qr_app.ini", "Database",  "LogPass", "")
-	SQLCA.ServerName = profileString("qr_app.ini", "Database",  "ServerName", "")
-	SQLCA.LogId =profileString("qr_app.ini", "Database",  "LogId", "")
-	if profileString("qr_app.ini", "Database",  "AutoCommit ", "FALSE") = "TRUE" then
-		SQLCA.AutoCommit = True
-	else
-		SQLCA.AutoCommit = False
-	end if	
-	SQLCA.LogId =profileString("qr_app.ini", "Database",  "LogId", "")
-	SQLCA.DBParm =profileString("qr_app.ini", "Database",  "DBParm ",  "ConnectString='DSN=AdventureWorks2012;UID=sa;PWD=sa'")  
-	
-	Connect USING SQLCA;
-END IF
-end subroutine
-
-public function long wf_retrieve (datawindow adw);Long ll_rowCount
-
-IF isPowerClientApp() THEN
-	ll_rowCount = wf_inserrows(adw)
-ELSE	
-	adw.settransobject(SQLCA)
-	ll_rowCount = adw.retrieve()
-END IF
-
-return ll_rowCount
-end function
-
-public function long wf_inserrows (datawindow adw);Integer li_row, li_rowcount, li_Insert
+public function long wf_retrieve (datawindow adw);Integer li_row, li_rowcount, li_Insert
 Long ll_BusinessEntityID[25]
 String ls_Title[25], ls_FirstName[25], ls_MiddleName[25]
 String NullString
@@ -197,9 +162,7 @@ end on
 
 event open;wf_version(st_myversion, st_platform)
 
-wf_conectar()
 wf_retrieve(dw_1)
-
 
 io_qr = CREATE nvo_barcode
 
