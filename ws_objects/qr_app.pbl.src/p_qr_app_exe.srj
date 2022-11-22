@@ -6,14 +6,14 @@ COM:RSRSYSTEM
 DES:Appeon Power Builder 2022 Product File 64Bits
 CPY:Ramón San Félix Ramón
 PRD:Qr_app2022
-PVS:2022.0.1878.3
-PVN:2022,0,1878,3
-FVS:2022.0.1878.3
-FVN:2022,0,1878,3
+PVS:2022.0.1878.4
+PVN:2022,0,1878,4
+FVS:2022.0.1878.4
+FVN:2022,0,1878,4
 MAN:0,asInvoker,0
 PBD:qr_app.pbl,,1
-OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_NetCore\qr_app.pbl,nvo_zxingnetcoreclass,u
-OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_NetCore\qr_app.pbl,w_qr,w
-OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_NetCore\qr_app.pbl,nvo_barcode,u
-OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_NetCore\qr_app.pbl,qr_app,a
-OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_NetCore\qr_app.pbl,dw_persondemo,d
+OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_app\qr_app.pbl,dw_persondemo,d
+OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_app\qr_app.pbl,qr_app,a
+OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_app\qr_app.pbl,nvo_barcode,u
+OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_app\qr_app.pbl,nvo_zxingnetcoreclass,u
+OBJ:C:\projecto pw2022\Blog\PowerBuilder\Qr_app\qr_app.pbl,w_qr,w
