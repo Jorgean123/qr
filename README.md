@@ -7,11 +7,11 @@ Si necesitas modificar el proyecto de Visual Studio 2022 lo tienes disponible aq
 
 https://github.com/rasanfe/ZxingBarcode
 
-Para que este ejemplo funcione hay que tener instalado Net Core 3.1.
+Para que este ejemplo funcione hay que tener instalado .Net6
 
 Puedes descargarlo en:
 
-https://dotnet.microsoft.com/en-us/download/dotnet/3.1
+https://dotnet.microsoft.com/en-us/download/dotnet/6.0
 
 He creado un video demo en Youtube: 
 
