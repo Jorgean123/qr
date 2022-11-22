@@ -9,7 +9,7 @@ end type
 global nvo_barcode nvo_barcode
 
 type variables
-nvo_zxingnetcoreclass io_zxing
+nvo_zxingnet6 io_zxing
 
 CONSTANT Integer AZTEC = 1
         //
@@ -99,7 +99,6 @@ CONSTANT Integer PHARMA_CODE = 21
         //     tested, and it looks more like a 2D)  -->ONLY FOR DECODE
 CONSTANT Integer   All_1D = 22
 end variables
-
 forward prototypes
 public function string of_genera_qr (string as_data)
 public function string of_leer_qr (string as_qrfilepath)
@@ -206,7 +205,7 @@ TriggerEvent( this, "destructor" )
 call super::destroy
 end on
 
-event constructor;io_zxing = CREATE nvo_zxingnetcoreclass
+event constructor;io_zxing = CREATE nvo_zxingnet6
 
 end event
 
