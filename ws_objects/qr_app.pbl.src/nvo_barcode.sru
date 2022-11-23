@@ -99,6 +99,7 @@ CONSTANT Integer PHARMA_CODE = 21
         //     tested, and it looks more like a 2D)  -->ONLY FOR DECODE
 CONSTANT Integer   All_1D = 22
 end variables
+
 forward prototypes
 public function string of_genera_qr (string as_data)
 public function string of_leer_qr (string as_qrfilepath)
@@ -184,11 +185,6 @@ end if
 
 if not FileExists( ls_path +"\zxing.dll") then
 	messagebox("Atención!", "¡ Necesita el Archivo zxing.dll para generar los código QR !", exclamation!)
-	Return False
-end if	
-
-if not FileExists( ls_path +"\System.Drawing.Common.dll") then
-	messagebox("Atención!", "¡ Necesita el Archivo System.Drawing.Common.dll para generar los código QR !", exclamation!)
 	Return False
 end if	
 
