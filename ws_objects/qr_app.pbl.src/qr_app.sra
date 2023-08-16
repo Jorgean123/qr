@@ -27,7 +27,7 @@ long richtexteditx64type = 3
 long richtexteditversion = 0
 string richtexteditkey = ""
 string appicon = "icono.ico"
-string appruntimeversion = "22.0.0.1900"
+string appruntimeversion = "22.1.0.2819"
 boolean manualsession = false
 boolean unsupportedapierror = false
 end type
