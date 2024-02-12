@@ -11,7 +11,7 @@ global message message
 end forward
 
 global variables
-
+String gs_AppDir
 end variables
 
 global type qr_app from application
@@ -22,14 +22,21 @@ string themename = "Flat Design Dark"
 boolean nativepdfvalid = false
 boolean nativepdfincludecustomfont = false
 string nativepdfappname = ""
-long richtextedittype = 0
-long richtexteditx64type = 3
-long richtexteditversion = 0
+long richtextedittype = 5
+long richtexteditx64type = 5
+long richtexteditversion = 3
 string richtexteditkey = ""
 string appicon = "icono.ico"
 string appruntimeversion = "22.2.0.3289"
 boolean manualsession = false
 boolean unsupportedapierror = false
+boolean ultrafast = false
+boolean bignoreservercertificate = false
+uint ignoreservercertificate = 0
+long webview2distribution = 0
+boolean webview2checkx86 = false
+boolean webview2checkx64 = false
+string webview2url = "https://developer.microsoft.com/en-us/microsoft-edge/webview2/"
 end type
 global qr_app qr_app
 
@@ -50,7 +57,7 @@ destroy(error)
 destroy(message)
 end on
 
-event open;
+event open;gs_AppDir = GetCurrentDirectory() +"\"
 Open(w_QR)
 end event
 

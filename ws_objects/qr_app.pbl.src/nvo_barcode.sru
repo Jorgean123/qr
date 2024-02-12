@@ -121,14 +121,14 @@ if isnull(as_data) OR as_data = "" then
 	Return ls_qr_blanco
 end if
 
-ls_path = GetCurrentDirectory()
-CreateDirectory(ls_path + "\QR_IMAGEN")
+ls_path = gs_appdir + "QR_IMAGEN"
+CreateDirectory(ls_path)
 
-ls_qr = ls_path + "\QR_IMAGEN\qr.png" // Fichero donde se genera el código de barras
+ls_qr = ls_path + "\qr.png" // Fichero donde se genera el código de barras
 
 FileDelete(ls_qr) //Si existe lo borro
 
-ls_qr_blanco =  ls_path +"\QR_IMAGEN\qrblanco.png"   // Fichero todo blanco
+ls_qr_blanco =  ls_path +"\qrblanco.png"   // Fichero todo blanco
 
 //Podriamos Genera Cualquier otro tipo de codigo de barras. Ver constantes de Instancia con todos los Formatos disponibles.
 //Configuración del Código QR
@@ -138,9 +138,10 @@ li_margin=2
 lb_PureBarcode=true
 li_format = QR_CODE
 
-ls_result = io_zxing.of_barcodegenerate(as_data, ls_qr, li_format, li_width, li_height, lb_PureBarcode, li_margin)
+ls_result = io_zxing.of_barcodegenerate(as_data, ls_qr, li_format, li_height, li_width, lb_PureBarcode, li_margin)
+                         
 
-IF isnull(ls_result) or ls_result="" THEN ls_result=io_zxing.is_ErrorText
+IF isnull(ls_result) or ls_result="" THEN ls_result = io_zxing.is_ErrorText
 	
 IF ls_result <> ls_qr THEN
 		messagebox("Error", ls_result, Stopsign!)
@@ -174,21 +175,19 @@ RETURN ls_lectura
 
 end function
 
-public function boolean of_controles_previos ();String ls_path
+public function boolean of_controles_previos ();String ls_archivos[]
+Int li_idx, li_totalArchivos
 
-ls_path = GetCurrentDirectory()
+ls_archivos[]={"ZxingBarcode.deps.json", "ZxingBarcode.dll", "zxing.dll", "ZXing.Windows.Compatibility.dll", "System.Drawing.Common.dll", "Microsoft.Win32.SystemEvents.dll"}
 
-if not FileExists( ls_path +"\ZxingBarcode.dll") then
-	messagebox("Atención!","¡ Necesita el Archivo ZxingBarcode.dll para generar los código QR !", exclamation!)
-	Return False
-end if	
+li_totalArchivos = UpperBound(ls_archivos[])
 
-if not FileExists( ls_path +"\zxing.dll") then
-	messagebox("Atención!", "¡ Necesita el Archivo zxing.dll para generar los código QR !", exclamation!)
-	Return False
-end if	
-
-return true
+FOR li_idx = 1 TO li_totalArchivos
+	IF NOT FileExists(gs_appdir+"ZxingNet6\"+ls_archivos[li_idx]) THEN
+		messagebox ("Atención", "¡ Necesita el Archivo "+ls_archivos[li_idx]+" !", Exclamation!)
+		Return FALSE
+	END IF
+NEXT	
 end function
 
 on nvo_barcode.create
