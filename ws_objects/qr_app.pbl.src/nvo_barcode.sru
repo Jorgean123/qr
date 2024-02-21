@@ -176,18 +176,20 @@ RETURN ls_lectura
 end function
 
 public function boolean of_controles_previos ();String ls_archivos[]
-Int li_idx, li_totalArchivos
+Int li_idx, li_TotalArchivos
 
 ls_archivos[]={"ZxingBarcode.deps.json", "ZxingBarcode.dll", "zxing.dll", "ZXing.Windows.Compatibility.dll", "System.Drawing.Common.dll", "Microsoft.Win32.SystemEvents.dll"}
 
-li_totalArchivos = UpperBound(ls_archivos[])
+li_TotalArchivos = UpperBound(ls_archivos[])
 
-FOR li_idx = 1 TO li_totalArchivos
+FOR li_idx = 1 TO li_TotalArchivos
 	IF NOT FileExists(gs_appdir+"ZxingNet6\"+ls_archivos[li_idx]) THEN
-		messagebox ("Atención", "¡ Necesita el Archivo "+ls_archivos[li_idx]+" !", Exclamation!)
+		MessageBox ("Atención", "¡ Necesita el Archivo "+ls_archivos[li_idx]+" !", Exclamation!)
 		Return FALSE
 	END IF
 NEXT	
+
+Return TRUE
 end function
 
 on nvo_barcode.create
